@@ -21,6 +21,10 @@ on:
 env:
   AZURE_PATH: '.'    # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '8.0.102'              # set this to the dotnet version to use
+
+permissions:
+    id-token: write
+    contents: read
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
