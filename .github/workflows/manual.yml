@@ -55,6 +55,7 @@ jobs:
     - name: Azure token
       run: |
         $az_token=$(az account get-access-token --scope https://vault.azure.net/.default --query accessToken --output tsv)
+        echo $az_token
          echo "::add-mask::$az_token"
          echo "AZ_TOKEN=$az_token" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
                                     
