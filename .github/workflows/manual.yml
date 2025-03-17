@@ -61,8 +61,13 @@ jobs:
     - name: "Fetching Repository Contents"
       uses: actions/checkout@main
     - name: Build signed installer
+      shell: cmd
       run: azuresigntool.exe sign --verbose -kvu https://archikeyvault.vault.azure.net -kvc CodeSigningCert -kva %AZ_TOKEN% -fd sha256 -tr http://timestamp.digicert.com -v Capsule.Grpc.Client.dll
-      shell: cmd 
+    - name: Sign DLL
+      uses: actions/upload-artifact@v4
+      with:
+          name: sign_dll
+          path: Capsule.Grpc.Client.dll
     - name: Download all workflow run artifacts
       uses: actions/download-artifact@v4
 
