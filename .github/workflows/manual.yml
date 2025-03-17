@@ -1,26 +1,26 @@
 # This is a basic workflow that is manually triggered
- 
- name: Test-AzureSignTool
- 
- # Controls when the action will run. Workflow runs when manually triggered using the UI
- # or API.
- on:
-   workflow_dispatch:
-     # Inputs the workflow accepts.
-     inputs:
-       name:
-         # Friendly description to be shown in the UI instead of 'name'
-         description: 'Testing Sign with Github and azure sign tool'
-         # Default value if no value is explicitly provided
-         default: 'AzureSignTool'
-         # Input has to be provided for the workflow to run
-         required: false
-         # The data type of the input
-         type: string
- 
- env:
-  AZURE_PATH: '.'    
-  DOTNET_VERSION: '8.0.102'              
+
+name: Test-AzureSignTool
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Testing Sign with Github and azure sign tool'
+        # Default value if no value is explicitly provided
+        default: 'AzureSignTool'
+        # Input has to be provided for the workflow to run
+        required: false
+        # The data type of the input
+        type: string
+
+env:
+  AZURE_PATH: '.'    # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '8.0.102'              # set this to the dotnet version to use
 
 permissions:
     id-token: write
@@ -70,6 +70,3 @@ jobs:
           path: Capsule.Grpc.Client.dll
     - name: Download all workflow run artifacts
       uses: actions/download-artifact@v4
-
-      
-  
