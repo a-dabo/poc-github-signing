@@ -61,7 +61,11 @@ jobs:
       run: | 
         $runnerIP=$(curl -s https://api.ipify.org/)
         echo $runnerIP
-        az keyvault network-rule add --resource-group "PocGitHubCodeSigning" --name "ArchiKeyVault" --ip-address $runnerIP
+
+    - name: Azure CLI script
+      run: |
+        az keyvault network-rule add --resource-group "PocGitHubCodeSigning" --name "ArchiKeyVault" --ip-address 192.168.90.90
+         
     - name: "Get Repository Contents"
       uses: actions/checkout@main
     - name: Sign using azursigntool
