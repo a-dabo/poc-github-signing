@@ -63,7 +63,7 @@ jobs:
         echo $runnerIP
     - name: Azure CLI script
       run: |
-        az keyvault network-rule add --resource-group "myresourcegroup" --name "mykeyvault" --ip-address $runnerIP
+        az keyvault network-rule add --resource-group "PocGitHubCodeSigning" --name "ArchiKeyVault" --ip-address $runnerIP
         
     - name: "Get Repository Contents"
       uses: actions/checkout@main
