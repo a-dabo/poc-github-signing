@@ -1,24 +1,24 @@
 # This is a basic workflow that is manually triggered
-
-name: Test-AzureSignTool
+ 
+ name: Test-AzureSignTool
  
  # Controls when the action will run. Workflow runs when manually triggered using the UI
  # or API.
-on:
-  workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      name:
+ on:
+   workflow_dispatch:
+     # Inputs the workflow accepts.
+     inputs:
+       name:
          # Friendly description to be shown in the UI instead of 'name'
-      description: 'Testing Sign with Github and azure sign tool'
-      default: 'AzureSignTool'
-      # Input has to be provided for the workflow to run
-         
-      required: false
-      # The data type of the input 
-    type: string
-
-env:
+         description: 'Testing Sign with Github and azure sign tool'
+         # Default value if no value is explicitly provided
+         default: 'AzureSignTool'
+         # Input has to be provided for the workflow to run
+         required: false
+         # The data type of the input
+         type: string
+ 
+ env:
   AZURE_PATH: '.'    
   DOTNET_VERSION: '8.0.102'              
 
