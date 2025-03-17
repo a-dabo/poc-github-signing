@@ -61,7 +61,6 @@ jobs:
       uses: azure/CLI@v1
       with:
         run: |
-          
           $runnerIP=$(curl -s https://api.ipify.org/)
           echo $runnerIP
           sleep 300
