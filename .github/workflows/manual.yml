@@ -60,8 +60,8 @@ jobs:
     - name: Whitelist GitHub Runner IP
       uses: azure/CLI@v1
       with:
-        inlineScript: |
-          set -eu
+        run: |
+          
           $runnerIP=$(curl -s https://api.ipify.org/)
           echo $runnerIP
           sleep 300
