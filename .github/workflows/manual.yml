@@ -61,12 +61,9 @@ jobs:
       run: | 
         $runnerIP=$(curl -s https://api.ipify.org/)
         echo $runnerIP
-    - name: Run Azure CLI Action simple test - cannot figure out how to make this work
-      uses: azure/cli@v2
-      with:
-        azcliversion: latest
-        inlineScript: |
-          az version
+    - name: Azure CLI script
+      run: |
+        az account show
         
     - name: "Get Repository Contents"
       uses: actions/checkout@main
