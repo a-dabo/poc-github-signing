@@ -61,7 +61,7 @@ jobs:
     - name: "Fetching Repository Contents"
       uses: actions/checkout@main
     - name: Build signed installer
-      run: 'Ssigntool="azuresigntool.exe sign --verbose -kvu https://archikeyvault.vault.azure.net -kvc CodeSigningCert -kva %AZ_TOKEN% -fd sha256 -tr http://timestamp.digicert.com -s $f" Capsule.Grpc.Client.dll'
+      run: azuresigntool.exe sign --verbose -kvu https://archikeyvault.vault.azure.net -kvc CodeSigningCert -kva %AZ_TOKEN% -fd sha256 -tr http://timestamp.digicert.com -s Capsule.Grpc.Client.dll
       shell: cmd                         
       
   
