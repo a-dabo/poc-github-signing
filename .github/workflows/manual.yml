@@ -58,12 +58,9 @@ jobs:
          echo "::add-mask::$az_token"
          echo "AZ_TOKEN=$az_token" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
     - name: Whitelist GitHub Runner IP
-      uses: azure/CLI@v1
-      with:
-        run: |
-          $runnerIP=$(curl -s https://api.ipify.org/)
-          echo $runnerIP
-          sleep 300
+        run $runnerIP=$(curl -s https://api.ipify.org/)
+        echo $runnerIP
+        
     - name: "Get Repository Contents"
       uses: actions/checkout@main
     - name: Sign using azursigntool
