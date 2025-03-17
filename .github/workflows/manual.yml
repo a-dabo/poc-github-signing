@@ -61,6 +61,11 @@ jobs:
       run: | 
         $runnerIP=$(curl -s https://api.ipify.org/)
         echo $runnerIP
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az version
         
     - name: "Get Repository Contents"
       uses: actions/checkout@main
