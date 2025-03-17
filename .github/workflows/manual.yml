@@ -58,7 +58,7 @@ jobs:
          echo "::add-mask::$az_token"
          echo "AZ_TOKEN=$az_token" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
     - name: Whitelist GitHub Runner IP
-        run $runnerIP=$(curl -s https://api.ipify.org/)
+      run: $runnerIP=$(curl -s https://api.ipify.org/)
         echo $runnerIP
         
     - name: "Get Repository Contents"
