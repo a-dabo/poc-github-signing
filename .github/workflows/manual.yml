@@ -46,6 +46,13 @@ jobs:
         dotnet-version: ${{ env.DOTNET_VERSION }}
     - name: Install AzureSignTool
       run: dotnet tool install --no-cache --global AzureSignTool --version 6.0.1
+      
+    - name: Azure logout
+      run: |
+        az logout
+        az cache purge
+        az account clear
+        
     - name: Azure login
       uses: azure/login@v1
       with:
